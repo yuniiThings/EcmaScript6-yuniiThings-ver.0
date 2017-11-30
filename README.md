@@ -14,7 +14,9 @@ JavaScript Study Project
 
 ### 2017. 11. 30
 - vuejs tutorial 시작
-- directive:: v-if:else, v-show
+- v-model
+- directive:: v-if, v-show
 - list-redering:: v-for
+- event-handler:: v-on
 
 ---
