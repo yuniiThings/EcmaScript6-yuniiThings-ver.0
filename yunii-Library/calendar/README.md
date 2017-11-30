@@ -21,11 +21,11 @@ renderCalendar: function 내에서 클래스를 수정하여 사용 가능합니
 ## 사용방법
 
 ### 1. var tbCalendar = new tableCalendar(); 
-클래스를 선언하여 객체에 담기
-### 2. tbCalendar.setBasicTemplate(“”);  
-일별에 들어갈 기본 템플릿을 설정한다.
+클래스를 선언하여 객체에 담습니다.
+### 2. tbCalendar.setBasicTemplate(“”);  
+일별에 들어갈 기본 템플릿을 설정합니다.
 ### 3. tbCalendar.init(new Date());
-파라미터로 넘긴 Date값으로 클래스의 초기값을 설정해준다. !!! renderCalendar:function 을 사용하기 전에 필수적으로 init:function을 호출하여 초기화 하여야 합니다.
+파라미터로 넘긴 Date값으로 클래스의 초기값을 설정해줍니다. !!! renderCalendar:function 을 사용하기 전에 필수적으로 init:function을 호출하여 초기화 하여야 합니다.
 ### 4. tbCalendar.renderCalendar(tag);
 querySelector로 검색가능한 태그의 id나 class값을 파라미터로 넘겨줍니다.
 ### option: 5. tbCalendar.moveMonth(1);
