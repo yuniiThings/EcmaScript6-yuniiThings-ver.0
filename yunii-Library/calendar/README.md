@@ -32,10 +32,9 @@ querySelector로 검색가능한 태그의 id나 class값을 파라미터로 넘
 넘어온 파라미터의 숫자값을 바탕으로 월을 이동하여 init: function을 자동으로 실행해줍니다.
 이후에 renderCalendar: function만 호출하면 이동한 달의 템플릿을 그립니다.
 
-#### renderCalendar를 추가 호출하도록 개발한 의도는 날짜를 설정하고,
-getTargetDate: function으로 설정된 날짜값을 통해 템플릿에 원하는 데이터를 그리기 쉽게 하기 위함입니다.
+* renderCalendar를 추가 호출하도록 개발한 의도는 날짜를 설정하고, getTargetDate: function으로 설정된 날짜값을 통해 템플릿에 원하는 데이터를 그리기 쉽게 하기 위함입니다.
 
-#### moveMonth: function 을 호출할 parameter값을 설명합니다.
+#### moveMonth: function 을 호출할 parameter값 설명
 - 0을 넘기면 현재월로 값을 설정합니다.
 - 음수는 이전달로 이동합니다. -1 : 한달전, -2: 두달전, -3: 세달전
 - 양수는 다음달로 이동합니다. 1: 한달후 …
