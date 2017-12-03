@@ -1,4 +1,4 @@
-# JavaScript-yuniiThings-ver.0
+# JavaScript-yuniiThings
 JavaScript Study Project
 
 # [yunii-library](https://github.com/yuniiThings/JavaScript-yuniiThings-ver.0/tree/master/yunii-Library)
