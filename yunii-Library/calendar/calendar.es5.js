@@ -101,12 +101,12 @@ var tableCalendar = function (){
 
         }
 
-            headTemplate += "</tr>";
-            headTemplate += "</thead>";
-            headTemplate += "<!-- calendar Table headTemplate : end -->";
-            headTemplate += "";
+        headTemplate += "</tr>";
+        headTemplate += "</thead>";
+        headTemplate += "<!-- calendar Table headTemplate : end -->";
+        headTemplate += "";
 
-            return headTemplate;
+        return headTemplate;
 
     }
 
@@ -173,25 +173,25 @@ var tableCalendar = function (){
                 continue;
             }
 
-        var dayTempateClass = weekDayClass + " " + dateClass;
-        dayTemplate += "<td data-date=\"\" class=\"c-day-template " + dayTempateClass + "\">";
+            var dayTempateClass = weekDayClass + " " + dateClass;
+            dayTemplate += "<td data-date=\"\" class=\"c-day-template " + dayTempateClass + "\">";
 
-        // 오늘 날짜일 경우
-        if(this.thisDateCheck == 1 && this.toDate.getDate() == templateDay){
-            dayTemplate += "<span class=\"today_num num\">";
-        }
-        else{
-            dayTemplate += "<span class=\"num\">";
-        }
+            // 오늘 날짜일 경우
+            if(this.thisDateCheck == 1 && this.toDate.getDate() == templateDay){
+                dayTemplate += "<span class=\"today_num num\">";
+            }
+            else{
+                dayTemplate += "<span class=\"num\">";
+            }
 
-        dayTemplate += templateDay;
-        dayTemplate += "</span>";
-        // dayTemplate += "<div class=\"" + dateClass + "-div\">";
-        dayTemplate += this.basicTemplate; // 설정된 기본 템플릿
-        // dayTemplate += "</div>";
-        dayTemplate += "</td>";
+            dayTemplate += templateDay;
+            dayTemplate += "</span>";
+            // dayTemplate += "<div class=\"" + dateClass + "-div\">";
+            dayTemplate += this.basicTemplate; // 설정된 기본 템플릿
+            // dayTemplate += "</div>";
+            dayTemplate += "</td>";
 
-        templateDay ++ ; // 날짜값 증가
+            templateDay ++ ; // 날짜값 증가
 
         }
 
