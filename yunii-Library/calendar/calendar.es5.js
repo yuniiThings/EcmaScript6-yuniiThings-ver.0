@@ -49,9 +49,6 @@ var tableCalendar = function (){
 
     }
 
-
-
-
     // countOfWeek: 해당 월의 주 개수
     function countOfWeek(){
 
