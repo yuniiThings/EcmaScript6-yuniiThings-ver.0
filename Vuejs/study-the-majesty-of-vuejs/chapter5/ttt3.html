@@ -1,0 +1,114 @@
+<html>
+<head></head>
+<script type="text/javascript">
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+// var addList = []; // globalList
+
+function solution(T) {
+    // write your code in JavaScript (Node.js 6.4.0)
+
+    var treeObj = T;
+    var rootNum;
+    var solutions = 0;
+    var rootLargerThanList = [];
+
+    rootNum = treeObj.x;
+    // rootLargerThanList = searchTree(treeObj, rootNum);
+
+    initAddList();
+
+    searchTree(treeObj, rootNum);
+    rootLargerThanList = getAddList();
+    solutions = rootLargerThanList.length;
+
+    console.log(solutions);
+
+    return solutions;
+}
+
+function initAddList(){
+    this.addList = [];
+}
+
+function hasTreeData(T, key){
+    var myObj = T;
+    var myKey = key; // key : x,l,r
+    var check;
+
+    var checkUndefined = typeof myObj[key];
+
+    if(checkUndefined === "undefinded"){
+        check = false;
+    }
+    else if(myObj[key] === null){
+        check = false;
+    }
+    else{
+        check = true;
+    }
+
+    return check;
+}
+
+function searchTree(T, rootNum){
+
+    var myObj = T;
+    var standardNum = rootNum;
+
+    var nextObj;
+    var biggerNum;
+
+    var myObjRoot;
+    var myObjLeft;
+    var myObjRight;
+    var myObjRootCheck;
+    var myObjLeftCheck;
+    var myObjRightCheck;
+
+
+    myObjRootCheck = hasTreeData(myObj, "x");
+    myObjLeftCheck = hasTreeData(myObj, "l");
+    myObjRightCheck = hasTreeData(myObj, "r");
+
+    if(myObjRootCheck){
+        myObjRoot = myObj.x; // number
+
+        if(myObjRoot >= standardNum){
+            pushAddList(myObjRoot);
+        }
+    }
+
+    if(myObjLeftCheck){
+       myObjLeft = myObj.l // obj
+       searchTree(myObjLeft, standardNum);
+    }
+
+    if(myObjRightCheck){
+       myObjRight = myObj.r // obj
+       searchTree(myObjRight, standardNum);
+    }
+
+}
+
+function pushAddList(N){
+
+    this.addList.push(N);
+}
+
+function getAddList(){
+    return this.addList;
+}
+
+
+
+
+solution({ x: 5,
+  l:
+   { x: 3,
+     l: { x: 20, l: null, r: null },
+     r: { x: 21, l: null, r: null } },
+  r: { x: 10, l: { x: 1, l: null, r: null }, r: null } })
+</script>
+</html>

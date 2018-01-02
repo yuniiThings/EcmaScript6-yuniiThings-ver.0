@@ -1,0 +1,123 @@
+<html>
+<head></head>
+<script type="text/javascript">
+
+function solution(A, B) {
+    // write your code in JavaScript (Node.js 6.4.0)
+
+    var solutions = -1;
+    var checkNum = toNumbers(A);
+    var targetNum = toNumbers(B);
+    var hasCheck;
+    var lenCheck;
+    var targetNumLen;
+    var checkNumLen;
+
+    hasCheck = hasCheckNum(checkNum, targetNum);
+    lenCheck = lenCheckNum(checkNum, targetNum);
+
+    if(hasCheck && lenCheck){
+
+        solutions = subTargetNumCheck(checkNum, targetNum, 0);
+
+    }
+    else{
+        // return -1;
+    }
+
+    return solutions;
+}
+
+function toNumbers(N){
+
+    var myNumber = N;
+    myNumber = N.toString();
+    myNumber = myNumber.replace(/,/gi, "");
+
+    myNumber = parseInt(myNumber);
+
+    return myNumber;
+
+}
+
+function hasCheckNum(A, B){
+
+    var checkNum = A;
+    var targetNum = B;
+    var hasCheck;
+
+    var checkReg = '(' + checkNum + ')';
+    var reg = new RegExp(checkReg, 'gi');
+
+    hasCheck = reg.test(targetNum);
+
+    return hasCheck;
+
+}
+
+function lenCheckNum(A, B){
+
+    var checkNum = A;
+    var targetNum = B;
+    var targetNumStr;
+    var checkNumStr;
+    var targetNumLen;
+    var checkNumLen;
+    var lenCheck;
+
+    targetNumStr = targetNum.toString();
+    checkNumStr = checkNum.toString();
+
+    targetNumLen = targetNumStr.length;
+    checkNumLen = checkNumStr.length;
+
+
+    if(targetNumLen < checkNumLen){
+        lenCheck = false;
+    }
+    else{
+        lenCheck = true;
+    }
+
+    return lenCheck;
+
+}
+
+function subTargetNumCheck(A, B, idx){
+
+    var checkNum = A;
+    var targetNum = B;
+    var targetCheckIdx = idx;
+    var targetNumStr;
+    var checkNumStr;
+    var targetNumLen;
+    var checkNumLen;
+    var subTargetNum;
+
+    targetNumStr = targetNum.toString();
+    checkNumStr = checkNum.toString();
+
+    targetNumLen = targetNumStr.length;
+    checkNumLen = checkNumStr.length;
+
+    subTargetNum = targetNumStr.substr(targetCheckIdx, checkNumLen);
+
+    if(subTargetNum == checkNum) {
+        return targetCheckIdx;
+    }
+
+    if(targetCheckIdx < targetNumLen){
+        targetCheckIdx = targetCheckIdx + 1;
+        return subTargetNumCheck(checkNum, targetNum, targetCheckIdx);
+    }
+    else{
+        return -1;
+    }
+
+}
+
+var ddd = solution("1,000", "3,000");
+console.log(ddd);
+
+</script>
+</html>

@@ -1,0 +1,59 @@
+<html>
+<head></head>
+<script type="text/javascript">
+    // you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function solution(N) {
+    // write your code in JavaScript (Node.js 6.4.0)
+    var lenN;
+    var dataN;
+    var returnN;
+
+    dataN = N;
+    dataN = parseInt(dataN);
+    dataN = dataN.toString(2);
+
+    returnN = checkLen(dataN);
+    console.log("returnN",returnN);
+    return returnN;
+
+}
+
+function checkLen(data){
+    console.log("data",data);
+    var lenPop;
+    var zeroCheckCnt = 0;
+    var maxZeroCheckCnt = 0;
+
+    var dataLen = data.length;
+
+
+    for(var i=0; i<dataLen; i++){
+
+        // lenPop = data.substr(i, 1);
+        lenPop = data[i];
+        lenPop = parseInt(lenPop);
+        console.log("lenPop",lenPop);
+        if(lenPop > 0){
+
+            if(zeroCheckCnt > maxZeroCheckCnt){
+                maxZeroCheckCnt = zeroCheckCnt;
+            }
+            zeroCheckCnt = 0;
+        }
+
+        else if(lenPop == 0){
+            zeroCheckCnt = zeroCheckCnt + 1;
+        }
+    }
+
+    return maxZeroCheckCnt;
+}
+
+solution(1041);
+solution(15);
+</script>
+</html>

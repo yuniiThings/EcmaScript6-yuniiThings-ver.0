@@ -1,0 +1,195 @@
+<html>
+<head></head>
+<script type="text/javascript">
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+
+function solution(A) {
+    // write your code in JavaScript (Node.js 6.4.0)
+
+    /*
+        1. var myClass = new SortSearchList();
+
+        2. myClass.init(listParameter);
+            ex) listParameter = [1,2,3,4,5] ;
+
+            init : myClass valiable reset
+
+        3. myClass.sortCheck();
+
+            searchSortList : recursive call
+
+            :: searchSortList -> comparisonNum -> ?sortCheckCntUp -> searchSortList
+            :: if end recursive call -> comparisonLastCheck -> ?setSortCheckCnt
+
+        4. myClass.getResult();
+
+            true OR false : return the answer to the question
+
+
+    */
+    var sortList = A;
+    var solutions;
+    var checkCnt;
+
+    var myClass = new SortSearchList();
+    myClass.init(sortList);
+    myClass.sortCheck();
+
+    solutions = myClass.getResult();
+
+    return solutions;
+
+}
+
+function SortSearchList(){
+
+    this.sortList;
+    this.sortListLen;
+    this.sortListLastIdx;
+    this.sortCheckCnt;
+    this.result;
+
+    var myThis = this;
+
+    this.init = function(A){
+
+        this.sortList = A;
+        this.sortListLen = A.length;
+        this.sortListLastIdx = A.length - 1;
+        this.sortCheckCnt = 0;
+        this.result = true;
+
+    }
+
+    this.getSortList = function(){
+        return this.sortList;
+    }
+
+    this.getSortListLen = function(){
+        return this.sortListLen;
+    }
+
+    this.getSortListLastIdx = function(){
+        return this.sortListLastIdx;
+    }
+
+    this.getSortCheckCnt = function(){
+        return this.sortCheckCnt;
+    }
+
+    this.getResult = function(){
+        return this.result;
+    }
+
+    this.sortCheck = function(){
+
+        var myList = this.getSortList();
+        var myListLen = this.getSortListLen();
+        var startNum = myList[0];
+        var checkCnt;
+
+        if(myListLen == 1){
+            checkCnt = this.getSortCheckCnt();
+        }
+        else{
+            checkCnt = searchSortList(1, startNum);
+        }
+
+        setResult(checkCnt);
+
+    }
+
+    function setSortCheckCnt(N){
+        myThis.sortCheckCnt = N;
+    }
+
+    function setResult(checkCnt){
+
+        if(checkCnt > 0){
+            myThis.result = true;
+        }
+        else{
+            myThis.result = false;
+        }
+
+    }
+
+    // use: sortCheck , sequence1
+    function searchSortList(idx, refNum){
+
+        var myList = myThis.getSortList();
+        var myListLen = myThis.getSortListLen();
+        var listIdx = idx;
+        var lastIdx = myThis.getSortListLastIdx();
+        var myRefNum = refNum;
+
+        var myNum;
+        var nextRefNum;
+        var checkCnt;
+        console.log("안녕");
+        if(listIdx == myListLen){
+            myNum = myList[listIdx-1];
+
+            comparisonLastCheck(myNum, refNum);
+            checkCnt = myThis.getSortCheckCnt();
+
+            return checkCnt;
+        }
+        else{
+            myNum = myList[listIdx];
+            nextRefNum = comparisonNum(myNum, refNum, false);
+            listIdx = listIdx + 1;
+
+            return searchSortList(listIdx, nextRefNum);
+        }
+
+    }
+
+    // use: searchSortList, sequence2
+    function comparisonNum(myNum, refNum, last){
+
+        var returnNum;
+        var getCnt;
+
+        if(myNum < refNum){
+            returnNum = refNum;
+            sortCheckCntUp();
+        }
+        else{
+            returnNum = myNum;
+        }
+
+        return returnNum;
+
+    }
+
+    // use: comparisonNum, sequence3
+    function sortCheckCntUp(){
+        myThis.sortCheckCnt = myThis.sortCheckCnt + 1;
+    }
+
+    // use: searchSortList, sequence4
+    function comparisonLastCheck(myNum, refNum){
+
+        var myCnt;
+
+        if(myNum < refNum){
+            setSortCheckCnt(0);
+        }
+        else{
+            myCnt = myThis.getSortCheckCnt();
+            if(myCnt == 0){
+                setSortCheckCnt(1);
+            }
+        }
+
+    }
+
+}
+
+solution([1, 5, 3, 3, 7]);
+solution([1, 3, 5]);
+</script>
+</html>
